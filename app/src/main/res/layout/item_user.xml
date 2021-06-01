@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="user"
+            type="com.example.githubusersearchapp.data.repository.searchUser.model.UserResponse" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:loadRoundedImage="@{user.avatarUrl}"
+            tools:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center|left"
+                android:text="@{user.login}"
+                android:textColor="#404040"
+                android:textSize="16sp"
+                tools:text="username" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/favoriteCheckBox"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/favorite_checkbox"
+            android:button="@null"
+            android:checked="@{user.favorite}" />
+
+    </LinearLayout>
+</layout>
